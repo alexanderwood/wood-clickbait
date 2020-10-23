@@ -2,6 +2,10 @@ supplemental/
 data/
 code/retired/
 
+*.DS_Store
+
+*__pycache__/
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
