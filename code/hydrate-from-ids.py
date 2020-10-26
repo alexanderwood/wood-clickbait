@@ -9,13 +9,12 @@ BEARER_TOKEN = os.environ['TWITTER_BEARER_TOKEN']
 h = Hydrator(bearer_token=BEARER_TOKEN)
 
 
-#handles = ['abc', 'bbc', 'breitbart', 'cbs', 'cnn', 'fox','msnbc', 'nbc', 'npr', 'wapo', 'wsj']
-handles = ['nytimes']
+handles = ['abc', 'bbc', 'breitbart', 'cbs', 'cnn', 'fox','msnbc', 'nbc', 'npr', 'nytimes', 'wapo', 'wsj']
 for handle in handles:
     print("Loading", handle)
     ################################################################################
     # Load the IDs.
-    fname = "{}-2017.txt".format(handle)
+    fname = "{}-2017.csv".format(handle)
     fpath = Path.cwd().parent / "data" / "news-outlets" / "tweet-ids" / fname
 
     '''
