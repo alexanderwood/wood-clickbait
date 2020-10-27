@@ -5,17 +5,18 @@ from pathlib import Path
 import json
 import time
 
+
 BEARER_TOKEN = os.environ['TWITTER_BEARER_TOKEN']
 h = Hydrator(bearer_token=BEARER_TOKEN)
 
 
-handles = ['abc', 'bbc', 'breitbart', 'cbs', 'cnn', 'fox','msnbc', 'nbc', 'npr', 'nytimes', 'wapo', 'wsj']
+handles = ['abc', 'bbc', 'breitbart', 'cbs', 'cnn', 'fox', 'huffpo', 'msnbc', 'nbc', 'npr', 'nytimes', 'wapo', 'wsj']
 for handle in handles:
     print("Loading", handle)
     ################################################################################
     # Load the IDs.
-    fname = "{}-2017.csv".format(handle)
-    fpath = Path.cwd().parent / "data" / "news-outlets" / "tweet-ids" / fname
+    fname = "{}-2017.txt".format(handle)
+    fpath = Path.cwd()/ "data" / "news-outlets" / "tweet-ids" / fname
 
     '''
     tweet_ids = []
@@ -38,18 +39,21 @@ for handle in handles:
     # Load the (already loaded) IDs
 
     # File for saving hydrated tweets.
-    save_file = Path.cwd().parent / "data" / "news-outlets" / fname.replace(".txt", ".csv")
+    save_file = Path.cwd() / "data" / "news-outlets" / fname.replace(".txt", ".csv")
     if os.path.isfile(save_file):
         with open(save_file, 'r') as f:
             reader = csv.reader(f)
             for row in reader:
                 id = row[0]
-                tweet_ids.remove(id)
+                if id=='tweet_id':
+                    continue
+                else:
+                     tweet_ids.remove(id)
         print("Number of tweets remaining for hydration:", len(tweet_ids))
 
 
     # File for saving deleted tweets.
-    err_file = Path.cwd().parent / "data" / "news-outlets" / "2017-deleted.csv"
+    err_file = Path.cwd() / "data" / "news-outlets" / "2017-deleted.csv"
     if os.path.isfile(err_file):
         with open(err_file, 'r') as f:
             reader = csv.reader(f)
