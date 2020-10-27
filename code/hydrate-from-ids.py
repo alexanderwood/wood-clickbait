@@ -5,12 +5,12 @@ from pathlib import Path
 import json
 import time
 
-
 BEARER_TOKEN = os.environ['TWITTER_BEARER_TOKEN']
 h = Hydrator(bearer_token=BEARER_TOKEN)
 
 
 handles = ['abc', 'bbc', 'breitbart', 'cbs', 'cnn', 'fox', 'huffpo', 'msnbc', 'nbc', 'npr', 'nytimes', 'wapo', 'wsj']
+handles = ['huffpo']
 for handle in handles:
     print("Loading", handle)
     ################################################################################
@@ -48,7 +48,8 @@ for handle in handles:
                 if id=='tweet_id':
                     continue
                 else:
-                     tweet_ids.remove(id)
+                    if id in tweet_ids: #some duplicates
+                        tweet_ids.remove(id)
         print("Number of tweets remaining for hydration:", len(tweet_ids))
 
 
@@ -91,7 +92,7 @@ for handle in handles:
         name_info = {}
 
         if 'errors' in payload:
-            with open(Path.cwd().parent / "data" / "news-outlets" / "2017-deleted.csv", 'a') as f:
+            with open(Path.cwd() / "data" / "news-outlets" / "2017-deleted.csv", 'a') as f:
                 for detail in payload['errors']:
                     f.write(handle + "," + detail['value'] + "," + detail['detail'] + "\n")
 
