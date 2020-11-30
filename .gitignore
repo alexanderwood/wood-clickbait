@@ -1,14 +1,15 @@
-supplemental/
-data/
-code/retired/
+data/survey/*
+data/tweets/*
+data/webis-clickbait-17/*
+assets/csv/private/*
+*scratch/*
+
 
 *.DS_Store
-
 *__pycache__/
 
 # Installer logs
 pip-log.txt
-pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
