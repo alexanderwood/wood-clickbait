@@ -2,8 +2,8 @@ data/survey/*
 data/tweets/*
 data/webis-clickbait-17/*
 assets/csv/private/*
-*scratch/*
-
+scratch/*
+*/scratch/*
 
 *.DS_Store
 *__pycache__/
