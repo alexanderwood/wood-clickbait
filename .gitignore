@@ -1,6 +1,7 @@
+data/survey
 data/survey/*
-data/tweets/*
-data/webis-clickbait-17/*
+data/tweets/tweet-hydrated/*
+data/webis-clickbait-17/raw-data/*
 assets/csv/private/*
 scratch/*
 */scratch/*

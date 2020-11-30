@@ -1,8 +1,8 @@
 Files:
 
-`tweet-id-(startdate)-(enddate).txt'
+`2017-{newsorg}.txt'
 
-Contain tweet IDs between startdate and enddate. Original quotes, @nytimes, which include at least one URL. 
+Contain tweet IDs between startdate and enddate (calendar year of 2017). Original quotes, @nytimes, which include at least one URL. 
 
 Retrieved from
 [https://tweetsets.library.gwu.edu/dataset/c06c2300?reload=true#datasetExports].
