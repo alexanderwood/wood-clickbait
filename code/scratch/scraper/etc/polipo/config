@@ -1,6 +1,0 @@
-socksParentProxy = localhost:9050
-diskCacheRoot=""
-disableLocalInterface=""
-
-
-socksProxyType = socks5
